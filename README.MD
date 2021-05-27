@@ -4,9 +4,9 @@ Instaclone Backend.
 
 ## User:
 
-- [] Create Account Mutation으로 만들음
-- [] See Profile Query로 만들음
-- [] Login
+- [x] Create Account Mutation으로 만들음
+- [x] See Profile Query로 만들음
+- [x] Login
 - [] Edit Profile
 - [] Follow User
 - [] Unfollow User
