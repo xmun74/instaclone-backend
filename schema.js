@@ -8,7 +8,7 @@ import {
 // **모든 폴더안  *모든파일
 // loadFilesSync는 export default한 것 가져옴
 const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`);
-const loadedResolvers = loadFilesSync(`${__dirname}/**/*.{resolvers}.js`);
+const loadedResolvers = loadFilesSync(`${__dirname}/**/*.resolvers.js`);
 
 const typeDefs = mergeTypeDefs(loadedTypes);
 const resolvers = mergeResolvers(loadedResolvers);
