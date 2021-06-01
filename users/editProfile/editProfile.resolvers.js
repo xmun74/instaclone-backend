@@ -10,11 +10,13 @@ const resolverFn = async (
 ) => {
   let avatarUrl = null;
   // node.js에서 파일저장하는법/ aws에서 연동하면 할 필요 없음
-  if(avatar) {
+  if (avatar) {
     const { filename, createReadStream } = await avatar;
-    const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`
+    const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
     const readStream = createReadStream();
-    const writeStream = createWriteStream(process.cwd() + "/uploads/" + newFilename);
+    const writeStream = createWriteStream(
+      process.cwd() + "/uploads/" + newFilename
+    );
     readStream.pipe(writeStream);
     avatarUrl = `http://localhost:4000/static/${newFilename}`;
   }
@@ -34,7 +36,7 @@ const resolverFn = async (
       bio,
       ...(uglyPassword && { password: uglyPassword }),
       // ...(조건 true면 && {} object 리턴) :uglyPassword가 true면, {password: uglyPassword}를 리턴한다.
-      ...(avatarUrl && {avatar: avatarUrl}),
+      ...(avatarUrl && { avatar: avatarUrl }),
       // avatarUrl 존재하면, avatar속성값은 avatarUrl다.
     },
   });
