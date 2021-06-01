@@ -28,7 +28,7 @@ export default {
         // 2. 비번을 DB에 글자그대로 저장하면 안됨! 맞는지만 체크=>hash사용:텍스트이상하게 만들어줌
         const uglyPassword = await bcrypt.hash(password, 10);
         // 3. save and return the user
-        return client.user.create({
+        await client.user.create({
           data: {
             username,
             email,
@@ -37,8 +37,14 @@ export default {
             password: uglyPassword,
           },
         });
+        return {
+          ok: true,
+        };
       } catch (error) {
-        return error;
+        return {
+          ok: false,
+          error: "Cant create account.",
+        };
       }
     },
   },

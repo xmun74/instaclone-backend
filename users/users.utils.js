@@ -21,3 +21,40 @@ export const getUser = async (token) => {
     return null;
   }
 };
+
+// export const protectResolver = (user) => {
+//   if (!user) {
+//     return {
+//       ok: false,
+//       error: "You need to login.",
+//     };
+//   }
+// };
+
+// export const protectedResolver =
+//   (ourResolver) => (root, args, context, info) => {
+//     if (!context.loggedInUser) {
+//       // 유저 로그인 안됐으면
+//       return {
+//         ok: false,
+//         error: "Please log in to perform this action.",
+//       };
+//     }
+//     return ourResolver(root, args, context, info);
+//     // 유저 로그인 됐으면 ourResolver받는다 editProfil.resolver-protectedResolver의 args가 ourResolver다
+//   };
+
+export function protectedResolver(ourResolver) {
+  return function (root, args, context, info) {
+    if (!context.loggedInUser) {
+      // 유저 로그인 안됐으면
+      return {
+        ok: false,
+        error: "Please log in to perform this action.",
+      };
+    }
+    return ourResolver(root, args, context, info);
+    // 유저 로그인 됐으면 ourResolver받는다
+    // editProfile.resolver파일 protectedResolver의 resolverFn가 ourResolver다
+  };
+}

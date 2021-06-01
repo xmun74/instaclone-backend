@@ -1,7 +1,7 @@
 require("dotenv").config();
 import { ApolloServer } from "apollo-server";
 import schema from "./schema";
-import { getUser } from "./users/users.utils";
+import { getUser, protectResolver } from "./users/users.utils";
 
 const PORT = process.env.PORT;
 //process.env로 PORT 접근함
@@ -11,6 +11,7 @@ const server = new ApolloServer({
     return {
       // token대신 user보냄/ getUser(토큰)넣어서 보냄
       loggedInUser: await getUser(req.headers.token),
+      protectResolver,
     };
   },
 });
