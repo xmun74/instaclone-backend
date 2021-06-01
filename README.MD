@@ -1,6 +1,6 @@
 # Instaclone
 
-Instaclone Backend.
+Instagram clone Backend.
 
 ## User:
 
@@ -8,6 +8,10 @@ Instaclone Backend.
 - [x] See Profile Query로 만들음
 - [x] Login
 - [] Edit Profile
+- [] Change Avatar (Image Upload)
 - [] Follow User
 - [] Unfollow User
-- [] Change Avatar (Image Upload)
+- [] See Followers w/ Pagination
+- [] See Following w/ Pagination
+- [] Computed Fields
+- [] Search Users
