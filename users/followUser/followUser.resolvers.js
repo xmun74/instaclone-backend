@@ -19,7 +19,8 @@ export default {
         data: {
           following: {
             connect: {
-              username,
+              //다른 유저와 연결
+              username, // 검색할 것
             },
           },
         },
