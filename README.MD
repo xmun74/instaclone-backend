@@ -19,11 +19,11 @@ Instagram clone Backend.
 ## Photos
 
 - [x] Upload Photo (Parse #)
-- [] See Photo
-- [] See Hashtag
-- [] Search Photos
-- [] Edit Photos
-- [] Like / Unlike Photo
+- [x] See Photo
+- [x] See Hashtag
+- [x] Search Photos
+- [x] Edit Photos
+- [x] Like / Unlike Photo
 - [] See Photo Likes
 - [] See Feed
 - [] See Photo Comments
