@@ -18,7 +18,7 @@ Instagram clone Backend.
 
 ## Photos
 
-- [] Upload Photo (Parse #)
+- [x] Upload Photo (Parse #)
 - [] See Photo
 - [] See Hashtag
 - [] Search Photos
