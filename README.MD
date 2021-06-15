@@ -24,15 +24,15 @@ Instagram clone Backend.
 - [x] Search Photos
 - [x] Edit Photos
 - [x] Like / Unlike Photo
-- [] See Photo Likes
-- [] See Feed
-- [] See Photo Comments
-- [] Delete Photo
+- [x] See Photo Likes
+- [x] See Feed
+- [x] See Photo Comments
+- [x] Delete Photo
 
 ## Comments
 
-- [] Comment on Photo
-- [] Delete Comment
+- [x] Comment on Photo
+- [x] Delete Comment
 - [] Edit Comment
 
 ## Refactor
