@@ -48,10 +48,16 @@ export function protectedResolver(ourResolver) {
   return function (root, args, context, info) {
     if (!context.loggedInUser) {
       // 유저 로그인 안됐으면
-      return {
-        ok: false,
-        error: "Please log in to perform this action.",
-      };
+      const query = info.operation.operation === "query";
+      if (query) {
+        //쿼리도 보호되게함
+        return null;
+      } else {
+        return {
+          ok: false,
+          error: "Please log in to perform this action.",
+        };
+      }
     }
     return ourResolver(root, args, context, info);
     // 유저 로그인 됐으면 ourResolver받는다

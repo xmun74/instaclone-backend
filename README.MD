@@ -33,15 +33,15 @@ Instagram clone Backend.
 
 - [x] Comment on Photo
 - [x] Delete Comment
-- [] Edit Comment
+- [x] Edit Comment
 
 ## Refactor
 
-- [] Mutation Responses
+- [x] Mutation Responses
 
 ## Extras
 
-- [] S3 image Upload
+- [x] S3 image Upload
 
 ## DMs
 

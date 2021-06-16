@@ -2,6 +2,7 @@ import { createWriteStream } from "fs";
 import bcrypt from "bcrypt";
 import client from "../../client";
 import { protectedResolver } from "../users.utils";
+import { uploadToS3 } from "../../shared/shared.utils";
 
 const resolverFn = async (
   _,
@@ -11,14 +12,15 @@ const resolverFn = async (
   let avatarUrl = null;
   // node.js에서 파일저장하는법/ aws에서 연동하면 할 필요 없음
   if (avatar) {
-    const { filename, createReadStream } = await avatar;
-    const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
-    const readStream = createReadStream();
-    const writeStream = createWriteStream(
-      process.cwd() + "/uploads/" + newFilename
-    );
-    readStream.pipe(writeStream);
-    avatarUrl = `http://localhost:4000/static/${newFilename}`;
+    avatarUrl = await uploadToS3(avatar, loggedInUser.id, "avatars");
+    // const { filename, createReadStream } = await avatar;
+    // const newFilename = `${loggedInUser.id}-${Date.now()}-${filename}`;
+    // const readStream = createReadStream();
+    // const writeStream = createWriteStream(
+    //   process.cwd() + "/uploads/" + newFilename
+    // );
+    // readStream.pipe(writeStream);
+    // avatarUrl = `http://localhost:4000/static/${newFilename}`;
   }
   let uglyPassword = null;
   if (newPassword) {
