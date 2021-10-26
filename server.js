@@ -4,8 +4,7 @@ import express from "express";
 import logger from "morgan";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./schema";
-import { getUser, protectResolver } from "./users/users.utils";
-import pubsub from "./pubsub";
+import { getUser } from "./users/users.utils";
 
 const PORT = process.env.PORT;
 //process.env로 PORT 접근함
@@ -36,14 +35,14 @@ const apollo = new ApolloServer({
       }
       const loggedInUser = await getUser(token);
       return {
-        loggedInUser,
+        loggedInUser, //return값 loggedInUser은 연결될때 http헤더전달함. 위 context로 들어간다.
       };
     },
   },
 });
 
 const app = express();
-app.use(logger("tiny"));
+app.use(logger("dev"));
 apollo.applyMiddleware({ app });
 app.use("/static", express.static("uploads"));
 

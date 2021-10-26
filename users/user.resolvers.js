@@ -28,7 +28,7 @@ export default {
       }
       return id === loggedInUser.id;
     },
-    isfollowing: async ({ id }, _, { loggedInUser }) => {
+    isFollowing: async ({ id }, _, { loggedInUser }) => {
       if (!loggedInUser) {
         return false;
       }

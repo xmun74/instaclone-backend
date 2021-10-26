@@ -3,8 +3,10 @@ import { protectedResolver } from "../../users/users.utils";
 
 export default {
   Query: {
-    seeFeed: protectedResolver((_, __, { loggedInUser }) =>
+    seeFeed: protectedResolver((_, { offset }, { loggedInUser }) =>
       client.photo.findMany({
+        take: 2, //2개만 표시하고 나머진 offset으로 스킵.표시안함
+        skip: offset,
         where: {
           OR: [
             {

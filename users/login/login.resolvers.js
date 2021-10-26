@@ -18,7 +18,7 @@ export default {
       if (!passwordOk) {
         return {
           ok: false,
-          error: "Incrrect password.",
+          error: "Incorect password.",
         };
       }
       // 3. issue a token and send it to the user
